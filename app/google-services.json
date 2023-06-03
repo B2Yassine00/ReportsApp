@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383766298157",
+    "project_id": "reportsapp-18323",
+    "storage_bucket": "reportsapp-18323.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383766298157:android:64ede499a0db889d7982a4",
+        "android_client_info": {
+          "package_name": "com.example.reportsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383766298157-upvh9cpchlqsiodr3039m7hs0fltetdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4YCORVdGz3IJ7p2NE4pNOB97FIk9AFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383766298157-upvh9cpchlqsiodr3039m7hs0fltetdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
