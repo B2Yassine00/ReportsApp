@@ -18,13 +18,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/repports"
-                android:layout_marginTop="100dp"/>
+                android:layout_marginTop="50dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Report security incident here"
-                android:layout_marginTop="15dp"
                 android:fontFamily="@font/dmsansreg"
                 android:textColor="#E45D11"
                 android:textSize="25dp"

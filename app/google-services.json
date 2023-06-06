@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "383766298157",
+    "firebase_url": "https://reportsapp-18323-default-rtdb.firebaseio.com",
     "project_id": "reportsapp-18323",
     "storage_bucket": "reportsapp-18323.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "383766298157-uqecqe80edae3kq18ub5cmqi6de9uvnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.reportsapp",
+            "certificate_hash": "e5fa159c5467072fd7f13718672b5f40f8dab4f9"
+          }
+        },
         {
           "client_id": "383766298157-upvh9cpchlqsiodr3039m7hs0fltetdb.apps.googleusercontent.com",
           "client_type": 3
