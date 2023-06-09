@@ -21,6 +21,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -30,6 +31,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,8 +53,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.OnProgressListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
@@ -92,6 +94,7 @@ public class AddReport extends AppCompatActivity {
     private ImageView repport_img;
     private TextView addressText;
     private EditText comment;
+    private ProgressBar mProgressBar;
     private Button sendButton,getLocationButton;
     private LocationRequest locationRequest;
     private Uri imageUri;
@@ -131,6 +134,7 @@ public class AddReport extends AppCompatActivity {
         addressText = findViewById(R.id.address);
         sendButton = findViewById(R.id.send_button);
         getLocationButton = findViewById(R.id.getLocation);
+        mProgressBar = findViewById(R.id.progress_bar);
 
 
         db = FirebaseFirestore.getInstance();
@@ -361,7 +365,7 @@ public class AddReport extends AppCompatActivity {
                     Uri resultUri = result.getUri();
                     imageUri = resultUri;
                     repport_img.setImageURI(resultUri);
-
+                    System.out.println(imageUri);
                     try {
                         saveToDirectory("" + imageUri.getPath(), "" + getDir("contacts_images", MODE_PRIVATE));
                     } catch (IOException e) {
@@ -447,10 +451,18 @@ public class AddReport extends AppCompatActivity {
         if (imageUri!=null){
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(imageUri));
+            System.out.println(imageUri);
             mUploadTask = fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mProgressBar.setProgress(0);
+                                }
+                            }, 500);
 
                             Toast.makeText(AddReport.this, "Upload successful", Toast.LENGTH_LONG).show();
                             Report report = new Report();
@@ -475,6 +487,13 @@ public class AddReport extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(AddReport.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            mProgressBar.setProgress((int) progress);
                         }
                     });
         } else {

@@ -6,5 +6,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateProfil">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
+
+
+  <Button
+      android:id="@+id/returnbutton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:translationX="-10dp"
+      android:translationY="-10dp"
+      android:background="@drawable/shape3"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center_horizontal"
+      android:layout_marginTop="50dp"
+      android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profil_img"
+        android:layout_width="222dp"
+        android:layout_height="172dp"
+        android:padding="10dp"
+        android:src="@drawable/profil"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Username"
+          android:textColor="@color/black"
+          android:fontFamily="@font/dmsansreg"
+          android:layout_marginBottom="10dp"
+          android:layout_marginLeft="10dp"/>
+
+      <EditText
+          android:id="@+id/username"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:inputType="text"
+          android:hint="Enter your username"
+          android:gravity="center"
+          android:textColorHint="#7F8A8E"
+          android:fontFamily="@font/dmsansreg"
+          android:background="@drawable/shapeforinput"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Email"
+          android:textColor="@color/black"
+          android:fontFamily="@font/dmsansreg"
+          android:layout_marginBottom="10dp"
+          android:layout_marginLeft="10dp"/>
+
+      <EditText
+          android:id="@+id/email"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:inputType="text"
+          android:hint="Enter your email"
+          android:gravity="center"
+          android:textColorHint="#7F8A8E"
+          android:fontFamily="@font/dmsansreg"
+          android:background="@drawable/shapeforinput"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Phone Number"
+          android:textColor="@color/black"
+          android:fontFamily="@font/dmsansreg"
+          android:layout_marginBottom="10dp"
+          android:layout_marginLeft="10dp"/>
+
+      <EditText
+          android:id="@+id/phone"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:inputType="text"
+          android:hint="Enter your phone number"
+          android:gravity="center"
+          android:textColorHint="#7F8A8E"
+          android:fontFamily="@font/dmsansreg"
+          android:background="@drawable/shapeforinput"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="315dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:background="@drawable/shape2"
+        android:fontFamily="@font/dmsansbold"/>
+
+  </LinearLayout>
+
+  </RelativeLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>
