@@ -18,7 +18,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class AddReport extends AppCompatActivity {
+public class
+
+AddReport extends AppCompatActivity {
 
     private ImageView repport_img;
     private EditText comment;
